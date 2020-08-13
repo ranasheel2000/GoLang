@@ -1,0 +1,109 @@
+https://www.udemy.com/course/learn-go-the-complete-bootcamp-course-golang/?couponCode=LEARNGO-NAV
+
+https://www.bogotobogo.com/GoLang/GoLang_HelloWorld.php
+https://github.com/kubernetes/client-go/tree/master/examples
+https://www.callicoder.com/deploy-containerized-go-app-kubernetes/
+
+https://medium.com/programming-kubernetes/building-stuff-with-the-kubernetes-api-1-cc50a3642
+https://medium.com/programming-kubernetes/building-stuff-with-the-kubernetes-api-part-4-using-go-b1d0e3c1c899
+
+https://itnext.io/how-to-create-a-kubernetes-custom-controller-using-client-go-f36a7a7536cc
+https://searchitoperations.techtarget.com/tutorial/Follow-a-Kubernetes-and-Go-tutorial-in-your-home-lab
+
+
+Install GO:
+===========
+- downlaod golang: 
+             https://golang.org/dl/
+- copy downloaded golang repo to /usr/local/
+- set GOROOT: 
+             GOROOT is go installation directory(where go binary is present) 
+             i.e. /usr/local/go/bin
+         export PATH=$PATH:/usr/local/go/bin
+
+- set GOPATH : 
+             GOPATH is environment variable which specifies the location of your workspace(working directory) 
+             i.e. directory where go code is stored. 
+         export GOPATH=/usr/sheel/go or export GOPATH=/root/anyDirectory/goodAsHomeDir/go
+                                    where $GOPATH may be set to home directory for user "sheel" 
+                                    or any other directory where you want to set your go workspace.
+
+After setting workspace and declaring it with GOPATH env variable, create src directory for your module:
+$ mkdir $GOPATH/src/github.com/ranasheel2000/hello
+$ cd $GOPATH/src/github.com/ranasheel2000/hello           ($GOPATH\src\github.com\ranasheel2000\referenceMaterial\GoLang\Practice)
+       write program in hello.go inside hello directory.
+--------------------------------------------------------------  
+~/.bashrc in linux
+--------------------------------------------------------------
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/usr/sheel/go
+echo ""
+echo "GOROOT is set to =/usr/local/go/bin"
+echo ""
+echo "GOPATH is set to = /usr/sheel/go"
+echo ""
+echo "Lets move to GOPARTH for practice"
+--------------------------------------------------------------
+~/.bashrc in windows (using git bash) : copy paste go zip in "/c/" and unzip it "/c/Go..."
+--------------------------------------------------------------
+export PATH=$PATH:/c/Go/bin
+export GOPATH=/d/GoPractice
+echo ""
+echo "GOROOT is set to =/c/Go/bin"
+echo ""
+echo "GOPATH is set to = /d/GoPractice"
+echo ""
+echo "Lets move to GOPARTH for practice"
+--------------------------------------------------------------
+
+
+
+Choose a module path (github.com/ranasheel2000/hello) and create a go.mod file that declares import path for it.   
+$ go mod init github.com/ranasheel2000/hello
+go: creating new go.mod: module github.com/ranasheel2000/hello
+$  ls
+go.mod  hello.go
+$  cat go.mod
+module github.com/ranasheel2000/hello
+
+go 1.14
+$ 
+
+$ build and install program : 
+      go install github.com/user/hello : It will create binary hello file at same location if GOPATH is not set.
+                                         If GOPATH is set, it will create binary file "hello" in bin directoty at $GOPATH/bin/.
+      go build  github.com/user/hello  : It will create hello binary file in $GOPATH/bin/hello
+      
+$ run program: $GOPATH/bin/hello
+               or  
+               $GOPATH/src/github.com/ranasheel2000/hello   #Use github.com/{githubUserNamewhereCodeRepoIsHostedOrCloned}
+
+GO Project code structure inside /home/sheel/go:
+-----------------------------------------------
+bin/
+    hello                 # command executable
+src/
+    github.com/ranasheel2000/
+        helloMain/
+            hello.go      # command source
+        helloUtil/
+            util.go       # package source
+            
+Basics:            
+1. Each of the .go file will contain  "package packageName"
+   for ex, in hellpUtil/util.go, use 
+                                 "package helloUtil"
+   Same way, "import hellpUtil" will be used in callig package.
+   Refer "Importing packages" for further details.
+   
+   
+2. If we want to export some function outside of package, then that funtion name must be started with capital letter;
+   else its scope will be within same package only.
+   for ex, func Exported(){
+   }
+Importing packages:   Refer "https://github.com/golang-standards/project-layout"
+===================
+In /home/sheel/go/src/github.com/user/helloMain/hello.go
+
+             import "github.com/user/helloUtil"         # Note: we are not using file name but using till directory name.
+             (This import path is same as module name stored in go.mod file of package).
