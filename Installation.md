@@ -23,8 +23,8 @@ Install GO:
     - set GOPATH : 
              GOPATH is environment variable which specifies the location of your workspace(working directory) 
              i.e. directory where go code is stored. 
-         export GOPATH=/usr/sheel/go or export GOPATH=/root/anyDirectory/goodAsHomeDir/go
-                                    where $GOPATH may be set to home directory for user "sheel" 
+             export GOPATH=/home/sheel/go 
+                                    $GOPATH may be set to home directory of user "/home/sheel/go" 
                                     or any other directory where you want to set your go workspace.
 
 After setting workspace and declaring it with GOPATH env variable, create src directory for your module.
@@ -43,17 +43,19 @@ setting GOPATH and GOROOT in ~/.bashrc file
 # Linux
 ```
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/usr/sheel/go
+export GOPATH=/home/sheel/go
 echo ""
 echo "GOROOT is set to =/usr/local/go/bin"
 echo ""
-echo "GOPATH is set to = /usr/sheel/go"
+echo "GOPATH is set to = /home/sheel/go"
 echo ""
 echo "Lets move to GOPARTH for practice"
 ```
 --------------------------------------------------------------
-# Windows (using git bash) : copy paste go zip in "/c/" and unzip it "/c/Go..."
---------------------------------------------------------------
+
+# Windows (using git bash)
+Installation : copy paste go zip in "/c/" and unzip it "/c/Go..."
+
 ```
 export PATH=$PATH:/c/Go/bin
 export GOPATH=/d/GoPractice
@@ -68,27 +70,29 @@ echo "Lets move to GOPARTH for practice"
 
 
 
-Choose a module path (github.com/ranasheel2000/hello) and create a go.mod file that declares import path for it.   
-$ go mod init github.com/ranasheel2000/hello
-go: creating new go.mod: module github.com/ranasheel2000/hello
+Choose a module path ($GOPATH\src\github.com\ranasheel2000\GoLang\Practice) and create a go.mod file that declares import path for it.   
+$ cd $GOPATH\src\github.com\ranasheel2000\GoLang\Practice
+$ mkdir hello
+$ go mod init hello
+go: creating new go.mod: module hello
 $  ls
 go.mod  hello.go
 $  cat go.mod
-module github.com/ranasheel2000/hello
+module hello
 
 go 1.14
 $ 
 
 $ build and install program : 
-      go install github.com/user/hello : It will create binary hello file at same location if GOPATH is not set.
+      go install github.com\ranasheel2000\GoLang\Practice : It will create binary hello file at same location if GOPATH is not set.
                                          If GOPATH is set, it will create binary file "hello" in bin directoty at $GOPATH/bin/.
-      go build  github.com/user/hello  : It will create hello binary file in $GOPATH/bin/hello
+      go build  github.com\ranasheel2000\GoLang\Practice  : It will create hello binary file in $GOPATH/bin/hello
       
 $ run program: $GOPATH/bin/hello
                or  
                $GOPATH/src/github.com/ranasheel2000/hello   #Use github.com/{githubUserNamewhereCodeRepoIsHostedOrCloned}
 
-GO Project code structure inside /home/sheel/go:
+GO Project code structure inside /home/sheel/go
 -----------------------------------------------
 bin/
     hello                 # command executable
