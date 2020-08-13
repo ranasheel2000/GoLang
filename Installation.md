@@ -13,28 +13,35 @@ https://searchitoperations.techtarget.com/tutorial/Follow-a-Kubernetes-and-Go-tu
 
 Install GO:
 ===========
-- downlaod golang: 
-             https://golang.org/dl/
-- copy downloaded golang repo to /usr/local/
-- set GOROOT: 
+1. downlaod golang: https://golang.org/dl/
+2. copy downloaded golang repo to /usr/local/
+    - set GOROOT: 
              GOROOT is go installation directory(where go binary is present) 
              i.e. /usr/local/go/bin
          export PATH=$PATH:/usr/local/go/bin
 
-- set GOPATH : 
+    - set GOPATH : 
              GOPATH is environment variable which specifies the location of your workspace(working directory) 
              i.e. directory where go code is stored. 
          export GOPATH=/usr/sheel/go or export GOPATH=/root/anyDirectory/goodAsHomeDir/go
                                     where $GOPATH may be set to home directory for user "sheel" 
                                     or any other directory where you want to set your go workspace.
 
-After setting workspace and declaring it with GOPATH env variable, create src directory for your module:
-$ mkdir $GOPATH/src/github.com/ranasheel2000/hello
-$ cd $GOPATH/src/github.com/ranasheel2000/hello           ($GOPATH\src\github.com\ranasheel2000\referenceMaterial\GoLang\Practice)
-       write program in hello.go inside hello directory.
---------------------------------------------------------------  
-~/.bashrc in linux
---------------------------------------------------------------
+After setting workspace and declaring it with GOPATH env variable, create src directory for your module.
+```
+$mkdir $GOPATH/src/github.com/<username>/<project_name...>  
+           #For ex, "ranasheel2000/GoLang/Practice/"
+$cd $GOPATH/src/github.com/<username>/<project_name...>  
+           #For ex, "$GOPATH\src\github.com\ranasheel2000\GoLang\Practice"
+write code in hello.go inside hello directory.    
+       (hello is package name and hello.go is source file inside hello directory)
+```
+
+-------------------------------------------------------
+setting GOPATH and GOROOT in ~/.bashrc file 
+
+# Linux
+```
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/usr/sheel/go
 echo ""
@@ -43,9 +50,11 @@ echo ""
 echo "GOPATH is set to = /usr/sheel/go"
 echo ""
 echo "Lets move to GOPARTH for practice"
+```
 --------------------------------------------------------------
-~/.bashrc in windows (using git bash) : copy paste go zip in "/c/" and unzip it "/c/Go..."
+# Windows (using git bash) : copy paste go zip in "/c/" and unzip it "/c/Go..."
 --------------------------------------------------------------
+```
 export PATH=$PATH:/c/Go/bin
 export GOPATH=/d/GoPractice
 echo ""
@@ -54,6 +63,7 @@ echo ""
 echo "GOPATH is set to = /d/GoPractice"
 echo ""
 echo "Lets move to GOPARTH for practice"
+```
 --------------------------------------------------------------
 
 
